@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <style>
+        body {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 100px;
+        }
+
+        #loveMessage {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="messageContainer"></div>
+
+    <script>
+        function displayMessages() {
+            var messageContainer = document.getElementById("messageContainer");
+
+            // Display the first message
+            var firstMessage = document.createTextNode("I miss you to the point my heart aches");
+            messageContainer.appendChild(firstMessage);
+
+            // Display the second message after a delay
+            setTimeout(function () {
+                messageContainer.innerHTML = ""; // Clear the container
+                var secondMessage = document.createTextNode("I'm genuinely sorry for hurting you, I'll be more mature from now onwards");
+                messageContainer.appendChild(secondMessage);
+
+                // Display "I love you" infinitely
+                setInterval(function () {
+                    var loveMessage = document.createElement("span");
+                    loveMessage.textContent = "I love you ";
+                    loveMessage.style.color = "red";
+                    loveMessage.style.fontWeight = "bold";
+                    messageContainer.appendChild(loveMessage);
+                }, 1000); // Adjust the interval as needed
+            }, 3000); // Adjust the delay before the second message appears
+        }
+
+        // Call the function after the page loads
+        window.onload = displayMessages;
+    </script>
+</body>
+</html>
